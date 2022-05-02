@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Z_BONUS_01;
+    src: url(FONT/Z_BONUS_01.ttf);
+}
+
+span {
+    font-family: Z_BONUS_01;
+}
