@@ -1,8 +1,79 @@
-@font-face {
-    font-family: Z_BONUS_01;
-    src: url(FONT/Z_BONUS_01.ttf);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap');
+
+body{
+    font-family: Poppins;
+    color: white;
+    margin: 0;
+    background-image: url("IMGS/AstaFUNDO.jpg");
 }
 
-span {
-    font-family: Z_BONUS_01;
+.container{
+    width: 90%;
+    margin: auto;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 90px;
+    background-color: black;
+}
+
+.header .container{
+    width: 95%;
+    display: flex;
+    align-items: center;
+}
+
+.header .container .navbar{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+ul{
+    list-style: none;
+}
+
+#icone{
+    border-radius: 50%;
+    border: 1px solid white;
+    width: 80px;
+}
+
+#astaCorpo{
+    border: 2px solid black;
+}
+
+.corpo{
+    width: 95%;
+    height: 600px;
+    border: 1px solid blueviolet;
+    display: flex;
+    margin: auto;
+    background-color: rgb(182, 182, 182);
+}
+
+.corpo .container{
+    width: 90%;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#apresentacao{
+    color: #010302;
+}
+
+.header .container .botao{
+    font-family: Poppins;
+    font-size: 14px;
+    border-radius: 30px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    width: 150px;
+    padding: 10px;
 }
