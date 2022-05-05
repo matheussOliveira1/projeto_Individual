@@ -4,7 +4,7 @@ body{
     font-family: Poppins;
     color: white;
     margin: 0;
-    background-image: url("IMGS/AstaFUNDO.jpg");
+    /* background-image : url("IMGS/AstaFUNDO.jpg"); */
 }
 
 .container{
@@ -31,16 +31,21 @@ body{
     height: 50%;
     display: flex;
     justify-content: space-evenly;
+    font-size: 16px;
 }
 
 ul{
     list-style: none;
 }
 
+li{
+    cursor: pointer;
+}
+
 #icone{
     border-radius: 50%;
     border: 1px solid white;
-    width: 80px;
+    width: 50px;
 }
 
 #astaCorpo{
@@ -50,7 +55,7 @@ ul{
 .corpo{
     width: 95%;
     height: 600px;
-    border: 1px solid blueviolet;
+    /* border: 1px solid blueviolet; */
     display: flex;
     margin: auto;
     background-color: rgb(182, 182, 182);
@@ -70,10 +75,15 @@ ul{
 
 .header .container .botao{
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 16px;
     border-radius: 30px;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
-    width: 150px;
+    width: 155px;
     padding: 10px;
+    cursor: pointer;
+}
+
+#slogan{
+    width: 20%;
 }
