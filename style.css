@@ -2,36 +2,83 @@
 
 body{
     font-family: Poppins;
+    font-size: 18px;
     color: white;
     margin: 0;
     /* background-image : url("IMGS/AstaFUNDO.jpg"); */
 }
 
-.container{
-    width: 90%;
-    margin: auto;
-}
+
+/* HEADER */
 
 .header{
     display: flex;
     justify-content: center;
-    width: 100%;
     height: 90px;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    position: fixed;
+    z-index: 3;
+    width: 100%;
 }
 
 .header .container{
-    width: 95%;
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-.header .container .navbar{
-    width: 100%;
+.header .containerNAV{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    width: 50%;
+}
+
+.header .containerNAV .navbar{
+    width: 400px;
     height: 50%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     font-size: 16px;
+}
+
+.header .containerICON{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+
+#icone{
+    border-radius: 50%;
+    border: 1px solid rgb(0, 0, 0);
+    width: 50px;
+}
+
+#slogan{
+    width: 115px;
+    color: black;
+}
+
+button{
+    font-family: Poppins;
+    border-radius: 30px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    width: 155px;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* FIM HEADER */
+
+.container{
+    width: 90%;
+    margin: auto;
 }
 
 ul{
@@ -40,16 +87,14 @@ ul{
 
 li{
     cursor: pointer;
+    color: black;
+    font-size: 18px;
 }
 
-#icone{
-    border-radius: 50%;
-    border: 1px solid white;
-    width: 50px;
-}
+
 
 #astaCorpo{
-    border: 2px solid black;
+    border: 2px solid white;;
 }
 
 .corpo{
@@ -58,7 +103,9 @@ li{
     /* border: 1px solid blueviolet; */
     display: flex;
     margin: auto;
-    background-color: rgb(182, 182, 182);
+    background-color: rgb(255, 0, 0);
+    padding-top: 50px;
+    /* background-image: url("IMGS/AstaFUNDO.jpg"); */
 }
 
 .corpo .container{
@@ -66,24 +113,10 @@ li{
     height: 550px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
 }
 
 #apresentacao{
     color: #010302;
 }
 
-.header .container .botao{
-    font-family: Poppins;
-    font-size: 16px;
-    border-radius: 30px;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    width: 155px;
-    padding: 10px;
-    cursor: pointer;
-}
 
-#slogan{
-    width: 20%;
-}
