@@ -10,39 +10,84 @@
 
   <body>
     <link rel="stylesheet" href="INDEX.JS" />
-    <div class="header">
+    <header>
       <div class="container">
-        <div class="containerICON">
+        <a href="index.html"><div class="containerICON">
           <img src="IMGS/AstaICONE.jpg" id="icone" />
-          <span id="slogan">Web Demon</span>
-        </div>
+          <span id="slogan"> Web Demon </span>
+        </div></a>
         <div class="containerNAV">
           <ul class="navbar">
-            <li>Sobre</li>
-            <li>Galeria</li>
-            <li>Valores</li>
+            <li><a href="#valores"> Valores </a></li>
+            <li><a href="sobre.html"> Sobre</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
           </ul>
         </div>
-        <button>Fomulário</button>
-      </div>
-    </div>
-
-    <div class="corpo">
-      
-      
-      <div class="container">
-        
-        <div id="container">
-          <button id="botaoSobre">Sobre</button>
+        <div class="botoes">
+          <a href="login.html"><button>Login</button></a>
+          <a href="cadastro.html"><button>Cadastro</button></a>
         </div>
-        
-          <div class="imagemBanner1">
-            <img src="IMGS/AstaAPRESENTAÇÃO.jpg" id="astaCorpo" />
-            <div class="imagemBanner2" id="bordaBanner"></div>
-          </div>
-
       </div>
-      
+    </header>
+
+    <div class="areaBanner">
+      <div class="banner">
+        <div class="container">
+          <a href="sobre.html"><button id="botaoSobre">Sobre</button></a>
+        </div>
+        <div class="imagemBanner">
+          <img src="IMGS/ASTAborda.png" id="astaCorpo" />
+        </div>
+      </div>
     </div>
+
+    <div class="areaValores" id="valores">
+      <div class="container">
+        <img src="IMGS/teste2.png" id="imgValores" />
+      </div>
+
+      <div class="valoresContainer">
+        <p>
+          O <b>foco</b> do Asta no mangá é algo representado de uma forma com
+          que você consiga sentir a intensidade do quão aquilo é importante para
+          o personagem, e é isso que eu quero trazer para minha vida
+          profissional, quero que meus tutores consigam perceber meu foco e
+          minha força de vontade quando eu estiver exercendo meu papel na
+          empresa.
+        </p>
+
+        <p>
+          Desde o começo o Asta teve um <b>treino</b> extremamete rigido e
+          dificil de se manter, mas ele nunca desistiu. Para mim esse treino é
+          representado pela realização de nossas tarefas, seja na faculdade ou
+          no trabalho.
+        </p>
+
+        <p>
+          O Asta nasceu em um mundo onde magia estava presente em tudo, mas o
+          Asta além de nascer um campones, nasceu sem magia alguma. Asta nunca
+          deixou isso ser um impedimento para que ele avançasse. Vou trazer esse
+          mesmo pensamento para meu dia a dia e levantar mesmo após cada recaida
+          que eu tiver, almejo ser <b>resiliente</b>.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>
+          Feito por: <br />
+          Matheus Alves de Oliveira
+        </p>
+      </div>
+
+      <div class="sociais">
+        <div class="container">
+          <img src="IMGS/Icones/instagram.png" id="iconInsta" />
+          <img src="IMGS/Icones/twitter.png" id="iconTwit" />
+          <img src="IMGS/Icones/linkedin.png" id="iconLinke" />
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

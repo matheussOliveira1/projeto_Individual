@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cadastro</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="index.html"
+          ><div class="containerICON">
+            <img src="IMGS/AstaICONE.jpg" id="icone" />
+            <span id="slogan"> Web Demon </span>
+          </div></a
+        >
+        <div class="containerNAV">
+          <ul class="navbar">
+            <li><a href="#valores"> Valores </a></li>
+            <li><a href="sobre.html"> Sobre</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+          </ul>
+        </div>
+        <div class="botoes">
+          <a href="login.html"><button>Login</button></a>
+          <a href="cadastro.html"
+            ><button class="pag_Cadastro">Cadastro</button></a
+          >
+        </div>
+      </div>
+    </header>
+
+    <div class="corpoCadastro">
+      <div class="container">
+
+        <div class="card">
+          <div class="conjuntoInputs">
+            
+            <span class="conjuntoNome">
+              Nome: 
+              <input type="text" id="inpt_Cadastro" /> 
+              Sobrenome: 
+              <input type="text" id="inpt_Cadastro" />
+            </span>
+            
+            <span>
+              Email: 
+              <input type="text" id="inpt_Email" />
+            </span>
+            
+            <span class="conjuntoSenha">
+              Senha:
+              <input type="text" id="inpt_Cadastro" /> 
+              Confirm. Senha
+              <input type="text" id="inpt_Cadastro" />
+            </span>
+            
+            Pers. Favorito:
+            <select id="persFav">
+              <option value="asta">Asta</option>
+              <option value="liebe">Liebe</option>
+              <option value="yuno">Yuno</option>
+            </select>
+          </div>  
+
+          <button onclick="cadastrar()">Cadastrar</button>
+        </div>
+      
+      </div>
+    </div>
+  </body>
+</html>
