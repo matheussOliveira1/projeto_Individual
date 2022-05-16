@@ -18,7 +18,7 @@
         >
         <div class="containerNAV">
           <ul class="navbar">
-            <li><a href="#valores"> Valores </a></li>
+            <li><a href="index.html#valores"> Valores </a></li>
             <li><a href="sobre.html"> Sobre</a></li>
             <li><a href="galeria.html">Galeria</a></li>
           </ul>
@@ -38,31 +38,41 @@
         <div class="card">
           <div class="conjuntoInputs">
             
-            <span class="conjuntoNome">
-              Nome: 
-              <input type="text" id="inpt_Cadastro" /> 
-              Sobrenome: 
-              <input type="text" id="inpt_Cadastro" />
-            </span>
+            <div class="isolar">
+              <div class="nome">
+                <span>Nome: </span>
+                <input type="text" class="inpt_Cadastro caixaNome" /> 
+              </div>
+              <div class="nome">
+                <span>Sobrenome: </span>
+                <input type="text" class="inpt_Cadastro caixaNome" /> 
+              </div>
+            </div>
             
-            <span>
+            <span class="span_Email">
               Email: 
               <input type="text" id="inpt_Email" />
             </span>
             
-            <span class="conjuntoSenha">
-              Senha:
-              <input type="text" id="inpt_Cadastro" /> 
-              Confirm. Senha
-              <input type="text" id="inpt_Cadastro" />
-            </span>
+            <div class="isolar">
+              <div class="nome">
+                <span>Senha: </span>
+                <input type="text" class="inpt_Cadastro caixaNome" /> 
+              </div>
+              <div class="nome">
+                <span>Confirm. Senha: </span>
+                <input type="text" class="inpt_Cadastro caixaNome" />
+              </div>
+            </div>
             
-            Pers. Favorito:
-            <select id="persFav">
-              <option value="asta">Asta</option>
-              <option value="liebe">Liebe</option>
-              <option value="yuno">Yuno</option>
-            </select>
+            <div class="selectFav">
+              Pers. Fav:
+              <select class="persFav">
+                <option value="asta">Asta</option>
+                <option value="liebe">Liebe</option>
+                <option value="yuno">Yuno</option>
+              </select>
+           </div>
           </div>  
 
           <button onclick="cadastrar()">Cadastrar</button>
@@ -70,5 +80,23 @@
       
       </div>
     </div>
+
+    <footer>
+      <div class="container">
+        <p>
+          Feito por: <br />
+          Matheus Alves de Oliveira
+        </p>
+      </div>
+
+      <div class="sociais">
+        <div class="container">
+          <img src="IMGS/Icones/instagram.png" id="iconInsta" />
+          <img src="IMGS/Icones/twitter.png" id="iconTwit" />
+          <img src="IMGS/Icones/linkedin.png" id="iconLinke" />
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>

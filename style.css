@@ -2,6 +2,11 @@
 
 
  /* GLOBAIS */
+
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: Poppins;
     font-size: 18px;
@@ -52,9 +57,6 @@ a{
     color: black;
 }
 
-html{
-    scroll-behavior: smooth;
-}
 
 /* FIM GLOBAIS */
 
@@ -382,35 +384,81 @@ header .botoes .pag_Cadastro{
 
 .corpoCadastro .container .card{
     display: flex;
-    height: 500px;
-    width: 45%;
-    border: 1px solid black;
+    height: 480px;
+    width: 37%;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: rgb(240, 240, 240);
     align-items: center;
-    background-color: darkgray;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .corpoCadastro .conjuntoInputs{
     display: flex;
     flex-direction: column;
-    height: auto;
+    align-items: center;
 }
 
-.corpoCadastro #inpt_Cadastro{
+.corpoCadastro .inpt_Cadastro{
     width: 200px;
     height: 30px;
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
-    color: white;
-    background-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     font-family: Poppins;
+}
+
+.corpoCadastro .isolar{
+    display: flex;
+    flex-direction: row;
+}
+
+.corpoCadastro .nome{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.corpoCadastro .caixaNome{
+    width: 100%;
 }
 
 .corpoCadastro #inpt_Email{
-    width: 533px;
+    width: 407px;
     height: 30px;
-    border: 2px solid rgb(255, 255, 255);
+    display: flex;
     border-radius: 10px;
-    color: white;
-    background-color: rgb(0, 0, 0);
     font-family: Poppins;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+}
+
+.corpoCadastro .span_Email{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.corpoCadastro .selectFav{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.corpoCadastro .persFav{
+    display: flex;
+    width: 115px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: Poppins;
+    font-size: 17px;
+}
+
+.corpoCadastro .isolarNome{
+    display: flex;
+    flex-direction: column;
 }
