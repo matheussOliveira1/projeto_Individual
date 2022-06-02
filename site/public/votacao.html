@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Login</title>
+    <title>Votar</title>
   </head>
   <body>
     <header>
@@ -21,38 +21,48 @@
             <li><a href="index.html#valores"> Valores </a></li>
             <li><a href="sobre.html"> Sobre</a></li>
             <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="dashboard/metricas.html">Resultados</a></li>
           </ul>
         </div>
         <div class="botoes">
-          <a href="login.html"><button class="pag_Login">Login</button></a>
-          <a href="cadastro.html"><button>Cadastro</button></a>
+          <a href="votacao.html"><button class="pag_Votar">Votar</button></a>
         </div>
       </div>
     </header>
 
-    <div class="corpoLogin">
+
+    <div class="imgFundo"></div>
+    <div class="corpoVotar">
       <div class="container">
         <div class="card">
-            <h4>Logue em sua conta</h4>
+          <h4>Personagem favorito:</h4>
           <div class="conjuntoInputs">
-
+            
             <div class="isolar">
-              <div class="email">
-                <span class="nome">Email: </span>
-                <input type="text" class="inpt_Login" />
+              <div class="nome">
+                <span>Nome: </span>
+                <input type="text" class="inpt_Votar caixaNome" /> 
+                <span>Idade: </span>
+                <input type="text" class="inpt_Votar caixaNome" /> 
+                <span>Sexo: </span>
+                <select class="persFav">
+                  <option value="masculino">Masculino</option>
+                  <option value="feminino">Feminino</option>
+                  <option value="outro">Outro</option>
+                </select>
+                <span>Pers. Fav: </span>
+                <select class="persFav">
+                  <option value="asta">Asta</option>
+                  <option value="liebe">Liebe</option>
+                  <option value="yuno">Yuno</option>
+                </select>
               </div>
             </div>
+          </div>  
 
-            <div class="isolar">
-              <div class="senha">
-                <span>Senha: </span>
-                <input type="text" class="inpt_Login" />
-              </div>
-            </div>
-
-          </div>
-          <button onclick="logar()">Login</button>
+          <button onclick="votar()">Votar</button>
         </div>
+      
       </div>
     </div>
 
@@ -62,5 +72,6 @@
           Matheus Alves de Oliveira
       </div>
     </footer>
+
   </body>
 </html>

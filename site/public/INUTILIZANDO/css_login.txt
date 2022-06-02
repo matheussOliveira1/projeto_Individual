@@ -1,0 +1,73 @@
+/* LOGIN  */
+
+header .botoes .pag_Login{
+    background-color: white;
+    color: black;
+}
+
+.corpoLogin{
+    color: black;
+    display: flex;
+    width: 100%;
+    height: 600px;
+    background-image: url(../assets/IMGS/TESTETESTE.png);
+    background-size: cover;
+}
+
+
+
+.corpoLogin .container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.corpoLogin .container .card{
+    display: flex;
+    height: 480px;
+    width: 550px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.corpoLogin .conjuntoInputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.corpoLogin .inpt_Login{
+    width: 430px;
+    height: 35px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    font-family: Poppins;
+    font-size: 16px;
+}
+
+.corpoLogin .email{
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+
+.corpoLogin .senha{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+}
+
+.corpoLogin .isolar{
+    display: flex;
+    flex-direction: row;
+}
+
+/* FIM LOGIN */

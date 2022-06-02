@@ -90,15 +90,15 @@ header .container{
 
 header .containerNAV{
     display: flex;
-    align-items: center;
+    width: 40%;
     justify-content: center;
 }
 
 header .containerNAV .navbar{
-    width: 400px;
+    width: 100%;
     height: 50%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: 16px;
 }
 
@@ -268,7 +268,7 @@ footer p{
 .sobreAsta p{
     font-size: 25px;
     width: 50%;
-    height: 478px;
+    height: 448px;
     border-radius: 2px;
     text-align: justify;
     align-items: center;
@@ -279,6 +279,7 @@ footer p{
 .sobreAsta #imgAsta{
     border: 1px solid black;
     border-radius: 2px;
+    height: 487px;
 }
 
 .sobreMatheus{
@@ -291,7 +292,7 @@ footer p{
 .sobreMatheus p{
     font-size: 25px;
     width: 95%;
-    height: 300px;
+    height: 335px;
     border-radius: 2px;
     text-align: justify;
     padding: 20px;
@@ -315,7 +316,7 @@ footer p{
 .imagens{
     width: 100%;
     height: auto;
-    background-color: rgb(126, 126, 126);
+    background-color: rgb(66, 66, 66);
     display: grid;
     padding-top: 25px;
 }
@@ -368,19 +369,19 @@ footer p{
 }
 
 .imagens .imgsCARD{
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 2px;
     width: 100%;
 }
 
 .imagens .imgsICON{
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 2px;
     width: 100%;
 }
 
 .imagens .imgsBANNER{
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 2px;
     width: 100%;
 }
@@ -392,30 +393,36 @@ footer p{
 
 /* FIM GALERIA */
 
-/* CADASTRO */
+/* VOTAR */
 
-header .botoes .pag_Cadastro{
+header .botoes .pag_Votar{
     background-color: white;
     color: black;
 }
 
-.corpoCadastro{
+.corpoVotar{
     color: black;
     display: flex;
     width: 100%;
     height: 600px;
-    background-image: url(../assets/IMGS/TESTETESTE.png);
-    background-size: cover;
-    
 }
 
-.corpoCadastro .container{
+.imgFundo{
+    width: 100%;
+    height: 600px;
+    background: url(../assets/IMGS/BANNERFUNDO.jpg);
+    background-size: cover;
+    filter: brightness(0.10) opacity(1);
+    position: absolute;
+}
+
+.corpoVotar .container{
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.corpoCadastro .container .card{
+.corpoVotar .container .card{
     display: flex;
     height: 480px;
     width: 580px;
@@ -425,15 +432,16 @@ header .botoes .pag_Cadastro{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 1;
 }
 
-.corpoCadastro .conjuntoInputs{
+.corpoVotar .conjuntoInputs{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.corpoCadastro .inpt_Cadastro{
+.corpoVotar .inpt_Votar{
     width: 190px;
     height: 30px;
     border: 2px solid rgb(0, 0, 0);
@@ -444,34 +452,34 @@ header .botoes .pag_Cadastro{
     font-size: 16px;
 }
 
-.corpoCadastro .isolar{
+.corpoVotar .isolar{
     display: flex;
     flex-direction: row;
 }
 
-.corpoCadastro .nome{
+.corpoVotar .nome{
     display: flex;
     flex-direction: column;
     padding: 20px;
 }
 
-.corpoCadastro #inpt_Email{
+.corpoVotar #inpt_Email{
     width: 430px;
 }
 
-.corpoCadastro .span_Email{
+.corpoVotar .span_Email{
     display: flex;
     align-items: flex-start;
     flex-direction: column;
 }
 
-.corpoCadastro .selectFav{
+.corpoVotar .selectFav{
     display: flex;
     align-items: center;
     padding: 15px;
 }
 
-.corpoCadastro .persFav{
+.corpoVotar .persFav{
     display: flex;
     width: 115px;
     height: 30px;
@@ -481,88 +489,14 @@ header .botoes .pag_Cadastro{
     font-size: 17px;
 }
 
-.corpoCadastro .isolarNome{
+.corpoVotar .isolarNome{
     display: flex;
     flex-direction: column;
 }
 
-/* FIM CADASTRO */
+/* FIM VOTACAO */
 
-/* LOGIN  */
-
-header .botoes .pag_Login{
-    background-color: white;
-    color: black;
-}
-
-.corpoLogin{
-    color: black;
-    display: flex;
-    width: 100%;
-    height: 600px;
-    background-image: url(../assets/IMGS/TESTETESTE.png);
-    background-size: cover;
-}
-
-
-
-.corpoLogin .container{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.corpoLogin .container .card{
-    display: flex;
-    height: 480px;
-    width: 550px;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 15px;
-    background-color: rgb(255, 255, 255);
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.corpoLogin .conjuntoInputs{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.corpoLogin .inpt_Login{
-    width: 430px;
-    height: 35px;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 10px;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
-    font-family: Poppins;
-    font-size: 16px;
-}
-
-.corpoLogin .email{
-    display: flex;
-    flex-direction: column;
-    padding-top: 15px;
-}
-
-.corpoLogin .senha{
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 15px;
-}
-
-.corpoLogin .isolar{
-    display: flex;
-    flex-direction: row;
-}
-
-/* FIM LOGIN */
-
-/* DASHBOARD */
+/* METRICAS */
 
 #sair{
     width: 200px;
@@ -582,23 +516,22 @@ header .botoes .pag_Login{
 
 .dashCards{
     width: 100%;
-    height: 700px;
+    height: 400px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 .dashCards .container{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .dashCards .container .cards{
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
+    width: 60%;
 }
 
 .dashCards h4{
@@ -616,13 +549,33 @@ header .botoes .pag_Login{
     border-radius: 2px;
 }
 
-.metrica{
-    color: black;
-    font-size: 30px;
+.boxMetrica{
+    width: 600px;
+    display: flex;
+    justify-content: center;
 }
 
-.dashContainer{
+.metrica{
+    display: flex;
+    width: 500px;
+    height: 100%;
+    color: white;
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 10px;
+    font-size: 30px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.boxTitulo{
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.tituloDash{    
+    color: black;
 }
