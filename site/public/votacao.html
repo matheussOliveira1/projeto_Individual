@@ -122,10 +122,10 @@
             if (resposta.ok) {
                 cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                mensagem_erro.innerHTML = "Obrigado por realizar um voto! Redirecionando para tela de Resultados...";
 
                 setTimeout(() => {
-                    window.location = "login.html";
+                    window.location = "dashboard/metricas.html";
                 }, "2000")
                 
                 limparFormulario();

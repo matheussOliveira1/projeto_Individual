@@ -12,7 +12,7 @@ INSERT INTO personagemFav VALUES
 (NULL, 'Yuno');
 
 CREATE TABLE Formulario(
-	idCadastro INT PRIMARY KEY AUTO_INCREMENT,
+	idFormulario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(90) NOT NULL,
     preferencia VARCHAR(45) CONSTRAINT chkPreferencia CHECK (preferencia = 'Mangá' OR preferencia = 'Anime') NOT NULL,
     respostaConclusao VARCHAR(45) CONSTRAINT checkResp CHECK (respostaConclusao = 'Sim' OR respostaConclusao = 'Não') NOT NULL,
@@ -20,14 +20,7 @@ CREATE TABLE Formulario(
     FOREIGN KEY (fkPersFav) REFERENCES personagemFav (idPersonagem)
 );
 
-INSERT INTO Formulario VALUES
-(NULL, 'Matheus', 'Anime', 'Sim', 1),
-(NULL, 'Miguel', 'Anime', 'Não', 3),
-(NULL, 'Vitor', 'Mangá', 'Não', 1),
-(NULL, 'Nakamura', 'Mangá', 'Sim', 2),
-(NULL, 'Julia', 'Anime', 'Não', 1);
-
-select * from personagem;
+select * from personagemFav;
 select * from formulario;
 
 -- SELECTS QUE QUERO UTILIZAR:
@@ -35,25 +28,25 @@ select * from formulario;
 
 -- HISTORICO UTILIZANDO UM 'SELECT *' COM ORDER BY id desc;
 
-SELECT * FROM Formulario ORDER BY idCadastro DESC;
+SELECT * FROM Formulario ORDER BY idFormulario DESC;
 
 
 -- QUANTIDADE DE FORMULARIOS OU SEJA UM SELECT COUNT DOS ID;
 
-SELECT count(idCadastro) FROM Formulario; 
+SELECT count(idFormulario) AS votosTotais FROM Formulario; 
 
 -- PEGAR O PERSONAGEM MAIS VOTADO; AINDA NÃO CONSEGUI
 
-SELECT count(fkPersFav) FROM Formulario GROUP BY fkPersFav;
+SELECT nomePersonagem, sum(fkPersFav) AS votosPersFav FROM Formulario join personagemFav on fkPersFav = idPersonagem order by fkPersFav desc;
 
 -- QUANTIDADE QUE PREFEREM ANIME:
 
-SELECT count(preferencia) FROM Formulario WHERE preferencia = 'Anime';
+SELECT count(preferencia) AS votosAnime FROM Formulario WHERE preferencia = 'anime';
 
 -- QUANTIDADE QUE PREFEREM MANGÁ:
 
-SELECT count(preferencia) FROM Formulario WHERE preferencia = 'Mangá';
+SELECT count(preferencia) AS votosManga FROM Formulario WHERE preferencia = 'manga';
 
 -- QUANTIDADE QUE JÁ TERMINARAM O ANIME OU MANGÁ:
 
-SELECT count(respostaConclusao) FROM Formulario WHERE respostaConclusao = 'Sim';
+SELECT count(respostaConclusao) as votosTerminaram FROM Formulario WHERE respostaConclusao = 'sim';

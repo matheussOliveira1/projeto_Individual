@@ -537,7 +537,7 @@ header .botoes .pag_Votar{
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
-    width: 75%;
+    width: 700px;
 }
 
 .dashCards h4{
@@ -556,19 +556,20 @@ header .botoes .pag_Votar{
 }
 
 .boxMetrica{
-    width: 700px;
+    width: 500px;
     display: flex;
+    align-items: center;
     justify-content: center;
-}
-
-.metrica{
-    display: flex;
-    width: 495px;
-    height: 100%;
-    color: rgb(255, 255, 255);
+    flex-direction: column;
     border: 1px solid rgb(0, 0, 0);
     background-color: rgb(66, 66, 66);
     border-radius: 10px;
+}
+
+.metrica{
+    color: rgb(255, 255, 255);
+    display: flex;
+    width: 100%;
     font-size: 23px;
     align-items: center;
     justify-content: center;

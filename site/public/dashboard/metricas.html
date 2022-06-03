@@ -37,11 +37,19 @@
         <div class="container">
           <div class="boxMetrica">
             <div class="metrica">
-              Personagem mais votado: <br>
-              Quantidade que já terminaram: <br>
-              Quantidade de votos realizados: <br>
-              Quantidade que preferem anime: <br>
-              Quantidade que preferem mangá: <br>
+              Personagem mais votado: <span id="qtdPersMaisVt"> </span> <br>
+            </div>
+            <div class="metrica">
+              Quantidade de votos realizados: <span id="qtdVtsFeitos"> </span> <br>
+            </div>
+            <div class="metrica">
+              Quantidade que já terminaram: <span id="qtdTerminaram"> </span> <br>
+            </div>
+            <div class="metrica">
+              Quantidade que preferem anime: <span id="qtdAnime"> </span> <br>
+            </div>
+            <div class="metrica">
+              Quantidade que preferem mangá: <span id="qtdManga"> </span> <br>
             </div>
           </div>
 
@@ -80,5 +88,29 @@
 </html>
 
 <script>
+window.onload = 
+obterDadosGrafico('votosAnime', 'anime'), 
+obterDadosGrafico('votosManga', 'manga'), 
+obterDadosGrafico('votosTerminaram', 'sim'), 
+obterDadosGrafico('votosTotais', 'idFormulario');
 
+function obterDadosGrafico(coluna, condicao) {
+  console.log(coluna, condicao);
+
+    fetch(`/medidas/ultimas/${coluna}/${condicao}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+            });
+            `qtd${coluna}.innerHTML = ${condicao}`;
+
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
 </script>

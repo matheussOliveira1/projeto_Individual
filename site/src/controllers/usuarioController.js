@@ -79,7 +79,7 @@ function votar(req, res) {
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.votar(nome, preferencia, personagemFav, respostaConclusao)
+        usuarioModel.votar(nome, preferencia, respostaConclusao, personagemFav)
             .then(
                 function (resultado) {
                     res.json(resultado);
