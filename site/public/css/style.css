@@ -68,6 +68,12 @@ h4{
     text-align: center;
 }
 
+#mensagem_erro{
+    text-align: center;
+    margin-bottom: 20px;
+    color: red;
+}
+
 
 /* FIM GLOBAIS */
 
@@ -418,14 +424,14 @@ header .botoes .pag_Votar{
 
 .corpoVotar .container{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 
 .corpoVotar .container .card{
     display: flex;
-    height: 480px;
-    width: 580px;
+    height: 525px;
+    width: 520px;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
@@ -531,7 +537,7 @@ header .botoes .pag_Votar{
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
-    width: 60%;
+    width: 75%;
 }
 
 .dashCards h4{
@@ -550,22 +556,21 @@ header .botoes .pag_Votar{
 }
 
 .boxMetrica{
-    width: 600px;
+    width: 700px;
     display: flex;
     justify-content: center;
 }
 
 .metrica{
     display: flex;
-    width: 500px;
+    width: 495px;
     height: 100%;
-    color: white;
-    border: 1px solid black;
-    background-color: black;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(66, 66, 66);
     border-radius: 10px;
-    font-size: 30px;
+    font-size: 23px;
     align-items: center;
-    text-align: center;
     justify-content: center;
 }
 
@@ -578,4 +583,25 @@ header .botoes .pag_Votar{
 
 .tituloDash{    
     color: black;
+}
+
+#ult_votos{
+    color: black;
+}
+
+.containerHIST{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerHIST .historico{
+    width: 50%;
+    height: 500px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }

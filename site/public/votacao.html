@@ -35,29 +35,35 @@
     <div class="corpoVotar">
       <div class="container">
         <div class="card">
-          <h4>Personagem favorito:</h4>
+          <h4>Formulário:</h4>
           <div class="conjuntoInputs">
             
             <div class="isolar">
               <div class="nome">
                 <span>Nome: </span>
-                <input type="text" class="inpt_Votar caixaNome" /> 
-                <span>Idade: </span>
-                <input type="text" class="inpt_Votar caixaNome" /> 
-                <span>Sexo: </span>
-                <select class="persFav">
-                  <option value="masculino">Masculino</option>
-                  <option value="feminino">Feminino</option>
-                  <option value="outro">Outro</option>
+                <input type="text" class="inpt_Votar caixaNome" id="inpt_nome"/>
+                <span>Preferencia: </span>
+                <select class="persFav" id="slct_pref">
+                  <option value="nothing">--</option>
+                  <option value="manga">Mangá</option>
+                  <option value="anime">Anime</option>
                 </select>
                 <span>Pers. Fav: </span>
-                <select class="persFav">
-                  <option value="asta">Asta</option>
-                  <option value="liebe">Liebe</option>
-                  <option value="yuno">Yuno</option>
+                <select class="persFav" id="slct_persFav">
+                  <option value="nothing">--</option>
+                  <option value="1">Asta</option>
+                  <option value="2">Liebe</option>
+                  <option value="3">Yuno</option>
+                </select>
+                <span>Já leu ou assistiu tudo? </span>
+                <select class="persFav" id="slct_respostaConclusao">
+                  <option value="nothing">--</option>
+                  <option value="sim">Sim</option>
+                  <option value="nao">Não</option>
                 </select>
               </div>
             </div>
+            <div id="mensagem_erro"></div>
           </div>  
 
           <button onclick="votar()">Votar</button>
@@ -75,3 +81,65 @@
 
   </body>
 </html>
+
+
+<script>
+      function votar() {
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = inpt_nome.value;
+        var preferenciaVar =  slct_pref.value;
+        var personagemVar = slct_persFav.value;
+        var respostaConclusaoVar = slct_respostaConclusao.value;
+
+        if (nomeVar == "" || preferenciaVar == "nothing" || personagemVar == "nothing" || respostaConclusaoVar == "nothing") {
+            mensagem_erro.innerHTML = "Ainda há campos que ainda necessitam de serem preenchidos!"
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/votar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                preferenciaServer: preferenciaVar,
+                personagemServer: personagemVar,
+                respostaConclusaoServer: respostaConclusaoVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+                limparFormulario();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+</script>
