@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(coluna, condicao) {
+function buscarUltimasMedidasAnime() {
 
     instrucaoSql = ''
 
@@ -14,7 +14,7 @@ function buscarUltimasMedidas(coluna, condicao) {
                     where fk_aquario = ${idAquario}
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = ` SELECT count(${coluna}) FROM Formulario WHERE ${coluna} = '${condicao}'`;
+        instrucaoSql = `SELECT count(preferencia) AS votosAnime FROM Formulario WHERE preferencia = 'anime'`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -24,27 +24,93 @@ function buscarUltimasMedidas(coluna, condicao) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
+function buscarUltimasMedidasManga() {
 
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select top 1
+        instrucaoSql = `select top ${limite_linhas}
         dht11_temperatura as temperatura, 
         dht11_umidade as umidade,  
-                        CONVERT(varchar, momento, 108) as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
+                        momento,
+                        CONVERT(varchar, momento, 108) as momento_grafico
+                    from medida
+                    where fk_aquario = ${idAquario}
                     order by id desc`;
-
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select 
+        instrucaoSql = `SELECT count(preferencia) AS votosManga FROM Formulario WHERE preferencia = 'manga'`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarUltimasMedidasTerminaram() {
+
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select top ${limite_linhas}
         dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
-                    order by id desc limit 1`;
+        dht11_umidade as umidade,  
+                        momento,
+                        CONVERT(varchar, momento, 108) as momento_grafico
+                    from medida
+                    where fk_aquario = ${idAquario}
+                    order by id desc`;
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `SELECT count(respostaConclusao) as votosTerminaram FROM Formulario WHERE respostaConclusao = 'sim'`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarUltimasMedidasMaisVotado() {
+
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select top ${limite_linhas}
+        dht11_temperatura as temperatura, 
+        dht11_umidade as umidade,  
+                        momento,
+                        CONVERT(varchar, momento, 108) as momento_grafico
+                    from medida
+                    where fk_aquario = ${idAquario}
+                    order by id desc`;
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `SELECT nomePersonagem, count(fkPersFav) AS votosPersFav FROM Formulario JOIN personagemFav ON fkPersFav = idPersonagem GROUP BY nomePersonagem ORDER BY votosPersFav DESC LIMIT 1`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarUltimasMedidasTotais() {
+
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select top ${limite_linhas}
+        dht11_temperatura as temperatura, 
+        dht11_umidade as umidade,  
+                        momento,
+                        CONVERT(varchar, momento, 108) as momento_grafico
+                    from medida
+                    where fk_aquario = ${idAquario}
+                    order by id desc`;
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `SELECT count(idFormulario) AS votosTotais FROM Formulario`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -56,6 +122,9 @@ function buscarMedidasEmTempoReal(idAquario) {
 
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarUltimasMedidasAnime,
+    buscarUltimasMedidasManga,
+    buscarUltimasMedidasTerminaram,
+    buscarUltimasMedidasMaisVotado,
+    buscarUltimasMedidasTotais,
 }

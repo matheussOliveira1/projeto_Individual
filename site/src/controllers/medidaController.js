@@ -1,11 +1,8 @@
 var medidaModel = require("../models/medidaModel");
 
-function buscarUltimasMedidas(req, res) {
+function buscarUltimasMedidasAnime(req, res) {
 
-    var Coluna = req.params.coluna;
-    var Condicao = req.params.condicao;
-
-    medidaModel.buscarUltimasMedidas(Coluna, Condicao).then(function (resultado) {
+    medidaModel.buscarUltimasMedidasAnime().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -18,14 +15,54 @@ function buscarUltimasMedidas(req, res) {
     });
 }
 
+function buscarUltimasMedidasManga(req, res) {
 
-function buscarMedidasEmTempoReal(req, res) {
+    medidaModel.buscarUltimasMedidasManga().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
-    var idAquario = req.params.idAquario;
+function buscarUltimasMedidasTerminaram(req, res) {
 
-    console.log(`Recuperando medidas em tempo real`);
+    medidaModel.buscarUltimasMedidasTerminaram().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+function buscarUltimasMedidasMaisVotado(req, res) {
+
+    medidaModel.buscarUltimasMedidasMaisVotado().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscarUltimasMedidasTotais(req, res) {
+
+    medidaModel.buscarUltimasMedidasTotais().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -39,7 +76,9 @@ function buscarMedidasEmTempoReal(req, res) {
 }
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
-
+    buscarUltimasMedidasAnime,
+    buscarUltimasMedidasManga,
+    buscarUltimasMedidasTerminaram,
+    buscarUltimasMedidasMaisVotado,
+    buscarUltimasMedidasTotais,
 }

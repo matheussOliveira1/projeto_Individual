@@ -21,7 +21,7 @@
             <li><a href="index.html#valores"> Valores </a></li>
             <li><a href="sobre.html"> Sobre</a></li>
             <li><a href="galeria.html">Galeria</a></li>
-            <li><a href="dashboard/metricas.html">Resultados</a></li>
+            <li><a href="metricas/metricas.html">Resultados</a></li>
           </ul>
         </div>
         <div class="botoes">
@@ -31,13 +31,12 @@
     </header>
 
 
-    <div class="imgFundo"></div>
     <div class="corpoVotar">
+      <div class="imgFundo"></div>
       <div class="container">
         <div class="card">
           <h4>Formulário:</h4>
           <div class="conjuntoInputs">
-            
             <div class="isolar">
               <div class="nome">
                 <span>Nome: </span>
@@ -63,6 +62,7 @@
                 </select>
               </div>
             </div>
+            <div id="voto_feito"></div>
             <div id="mensagem_erro"></div>
           </div>  
 
@@ -98,7 +98,7 @@
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            setInterval(sumirMensagem, 2000)
         }
 
         // Enviando o valor da nova input
@@ -120,17 +120,16 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML = "Obrigado por realizar um voto! Redirecionando para tela de Resultados...";
+              sumirMensagem();
+                voto_feito.innerHTML = "Obrigado por realizar um voto! Redirecionando para tela de Resultados...";
 
                 setTimeout(() => {
-                    window.location = "dashboard/metricas.html";
-                }, "2000")
+                    window.location = "metricas/metricas.html";
+                }, "3000")
                 
                 limparFormulario();
             } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
+                throw ("Houve um erro ao tentar realizar a votação!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
@@ -140,6 +139,6 @@
     }
 
     function sumirMensagem() {
-        cardErro.style.display = "none"
+        mensagem_erro.innerHTML = "";
     }
 </script>

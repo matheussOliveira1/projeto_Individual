@@ -23,30 +23,20 @@ CREATE TABLE Formulario(
 select * from personagemFav;
 select * from formulario;
 
+
 -- SELECTS QUE QUERO UTILIZAR:
 
-
--- HISTORICO UTILIZANDO UM 'SELECT *' COM ORDER BY id desc;
-
-SELECT * FROM Formulario ORDER BY idFormulario DESC;
-
-
 -- QUANTIDADE DE FORMULARIOS OU SEJA UM SELECT COUNT DOS ID;
-
 SELECT count(idFormulario) AS votosTotais FROM Formulario; 
 
--- PEGAR O PERSONAGEM MAIS VOTADO; AINDA NÃO CONSEGUI
-
-SELECT nomePersonagem, sum(fkPersFav) AS votosPersFav FROM Formulario join personagemFav on fkPersFav = idPersonagem order by fkPersFav desc;
+-- PEGAR O PERSONAGEM MAIS VOTADO;
+SELECT nomePersonagem, count(fkPersFav) AS votosPersFav FROM Formulario JOIN personagemFav ON fkPersFav = idPersonagem GROUP BY nomePersonagem ORDER BY votosPersFav DESC LIMIT 1;
 
 -- QUANTIDADE QUE PREFEREM ANIME:
-
 SELECT count(preferencia) AS votosAnime FROM Formulario WHERE preferencia = 'anime';
 
 -- QUANTIDADE QUE PREFEREM MANGÁ:
-
 SELECT count(preferencia) AS votosManga FROM Formulario WHERE preferencia = 'manga';
 
 -- QUANTIDADE QUE JÁ TERMINARAM O ANIME OU MANGÁ:
-
 SELECT count(respostaConclusao) as votosTerminaram FROM Formulario WHERE respostaConclusao = 'sim';

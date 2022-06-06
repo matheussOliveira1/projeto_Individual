@@ -37,7 +37,6 @@ button{
     width: 155px;
     padding: 10px;
     cursor: pointer;
-    margin-right: 20px;
 }
 
 button a{
@@ -70,7 +69,6 @@ h4{
 
 #mensagem_erro{
     text-align: center;
-    margin-bottom: 20px;
     color: red;
 }
 
@@ -82,13 +80,12 @@ h4{
 header{
     display: flex;
     justify-content: center;
-    height: 90px;
+    height: 75px;
     background-color: rgb(255, 255, 255);
     width: 100%;
 }
 
 header .container{
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -96,32 +93,23 @@ header .container{
 
 header .containerNAV{
     display: flex;
-    width: 40%;
+    width: 100%;
     justify-content: center;
 }
 
 header .containerNAV .navbar{
-    width: 100%;
-    height: 50%;
+    width: 50%;
     display: flex;
-    justify-content: space-between;
-    font-size: 16px;
+    justify-content: space-evenly;
+    padding: 0;
 }
 
 header .containerICON{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 165px;
 }
-
-header .containerICON{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-}
-
 
 #icone{
     border-radius: 50%;
@@ -218,7 +206,7 @@ header .containerICON{
 
 footer{
     width: 100%;
-    height: 90px;
+    height: 75px;
     border-top: 1px solid black;
     display: flex;
     justify-content: center;
@@ -228,7 +216,6 @@ footer{
 footer .container{
     width: 90%;
     height: 80px;
-    /* border: 1px solid black; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -432,7 +419,6 @@ header .botoes .pag_Votar{
     display: flex;
     height: 525px;
     width: 520px;
-    border: 2px solid rgb(0, 0, 0);
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
     align-items: center;
@@ -500,6 +486,12 @@ header .botoes .pag_Votar{
     flex-direction: column;
 }
 
+#voto_feito{
+    display: flex;
+    text-align: center;
+    color: green;
+}
+
 /* FIM VOTACAO */
 
 /* METRICAS */
@@ -522,7 +514,7 @@ header .botoes .pag_Votar{
 
 .dashCards{
     width: 100%;
-    height: 400px;
+    height: 545px;
     display: flex;
     flex-direction: column;
 }
@@ -531,13 +523,14 @@ header .botoes .pag_Votar{
     width: 100%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .dashCards .container .cards{
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
-    width: 700px;
+    width: 815px;
 }
 
 .dashCards h4{
@@ -546,7 +539,7 @@ header .botoes .pag_Votar{
 }
 
 .dashBox{
-    width: 25%;
+    width: 30%;
 }
 
 .imgsDash{
@@ -556,7 +549,8 @@ header .botoes .pag_Votar{
 }
 
 .boxMetrica{
-    width: 500px;
+    width: 515px;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -584,25 +578,6 @@ header .botoes .pag_Votar{
 
 .tituloDash{    
     color: black;
-}
-
-#ult_votos{
-    color: black;
-}
-
-.containerHIST{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.containerHIST .historico{
-    width: 50%;
-    height: 500px;
-    border: 1px solid black;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    margin-top: 20px;
 }

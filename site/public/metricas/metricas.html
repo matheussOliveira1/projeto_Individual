@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Votações</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="../index.html"
+        ><div class="containerICON">
+          <img src="../assets/IMGS/AstaICONE.jpg" id="icone" />
+          <span id="slogan"> Web Demon </span>
+        </div></a
+      >
+      <div class="containerNAV">
+        <ul class="navbar">
+          <li><a href="../index.html#valores"> Valores </a></li>
+          <li><a href="../sobre.html"> Sobre</a></li>
+          <li><a href="../galeria.html">Galeria</a></li>
+          <li><b>Resultados</b></li>
+        </ul>
+      </div>
+      <div class="botoes">
+        <a href="../votacao.html"><button>Votar</button></a>
+      </div>
+    </div>
+  </header>
+  <div class="boxTitulo">
+    <h4 class="tituloDash">Resultado das votações</h4>
+  </div>
+    <div class="dashCards">
+
+        <div class="container">
+          <div class="boxMetrica">
+            <div class="metrica">
+              Personagem mais votado: <span id="qtdPersMaisVt"> </span>
+            </div>
+            <div class="metrica">
+              Quantidade de votos realizados: <span id="qtdVtsFeitos"> </span>
+            </div>
+            <div class="metrica">
+              Quantidade que já terminaram: <span id="qtdTerminaram"> </span>
+            </div>
+            <div class="metrica">
+              Quantidade que preferem anime: <span id="qtdAnime"></span>
+            </div>
+            <div class="metrica">
+              Quantidade que preferem mangá: <span id="qtdManga"> </span>
+            </div>
+          </div>
+
+
+
+            <div class="cards">
+                <div class="dashBox">
+                    <h2 class="nomeCard">Asta</h2>
+                    <img src="../assets/IMGS/CARDS/cardAsta.png" class="imgsDash">
+                </div>
+
+                <div class="dashBox">
+                    <h2 class="nomeCard">Liebe</h2>
+                    <img src="../assets/IMGS/TESTE/LiebeTeste-01.png" class="imgsDash">
+                </div>
+
+                <div class="dashBox">
+                    <h2 class="nomeCard">Yuno</h2>
+                    <img src="../assets/IMGS/TESTE/YunoCorpo.png" class="imgsDash">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
+<script>
+window.onload = 
+obterDadosAnime(), 
+obterDadosManga(),
+obterDadosTerminaram(), 
+obterDadosMaisVotado(), 
+obterDadosTotais();
+
+function obterDadosAnime() {
+  console.log();
+    fetch(`/medidas/ultimas/Anime`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+              qtdAnime.innerHTML = resposta[0].votosAnime;
+              });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function obterDadosManga() {
+  console.log();
+    fetch(`/medidas/ultimas/Manga`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                qtdManga.innerHTML = resposta[0].votosManga;
+              });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function obterDadosTerminaram() {
+  console.log();
+    fetch(`/medidas/ultimas/Terminaram`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                qtdTerminaram.innerHTML = resposta[0].votosTerminaram;
+              });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function obterDadosMaisVotado() {
+  console.log();
+    fetch(`/medidas/ultimas/MaisVotado`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                qtdPersMaisVt.innerHTML = resposta[0].nomePersonagem;
+              });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function obterDadosTotais() {
+  console.log();
+    fetch(`/medidas/ultimas/Totais`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                qtdVtsFeitos.innerHTML = resposta[0].votosTotais;
+              });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+</script>
