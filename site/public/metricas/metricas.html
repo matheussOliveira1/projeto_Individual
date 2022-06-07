@@ -74,6 +74,16 @@
         </div>
     </div>
 
+    <div class="containerHIST">
+    <h2 id="ult_votos">Ultimas 10 votações:</h2>
+      <div class="historico">
+        <div>Posição | Nome | Preferencia | Pers. Favorito | Conclusão</div>
+          <div class="boxHistórico">
+              <span id="span_historico"></span>
+          </div>
+      </div>
+  </div>
+
     
 </body>
 </html>
@@ -84,7 +94,8 @@ obterDadosAnime(),
 obterDadosManga(),
 obterDadosTerminaram(), 
 obterDadosMaisVotado(), 
-obterDadosTotais();
+obterDadosTotais(),
+obterDadosHistorico();
 
 function obterDadosAnime() {
   console.log();
@@ -161,6 +172,25 @@ function obterDadosTotais() {
             response.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                 qtdVtsFeitos.innerHTML = resposta[0].votosTotais;
+              });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function obterDadosHistorico() {
+  console.log();
+    fetch(`/medidas/ultimas/Historico`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                for(var i = 0; i < 10; i++){
+                  span_historico.innerHTML += `${resposta[i].idFormulario}: ${resposta[i].nome} | ${resposta[i].preferencia} | ${resposta[i].nomePersonagem} | ${resposta[i].respostaConclusao}<br>`;
+                }
               });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');

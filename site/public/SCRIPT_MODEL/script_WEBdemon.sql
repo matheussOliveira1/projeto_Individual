@@ -23,8 +23,10 @@ CREATE TABLE Formulario(
 select * from personagemFav;
 select * from formulario;
 
-
 -- SELECTS QUE QUERO UTILIZAR:
+
+-- HISTORICO DE VOTAÇÕES
+SELECT idFormulario, nome, nomePersonagem, preferencia, respostaConclusao FROM Formulario JOIN personagemFav ON fkPersFav = idPersonagem ORDER BY idFormulario DESC;
 
 -- QUANTIDADE DE FORMULARIOS OU SEJA UM SELECT COUNT DOS ID;
 SELECT count(idFormulario) AS votosTotais FROM Formulario; 

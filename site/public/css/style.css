@@ -285,7 +285,7 @@ footer p{
 .sobreMatheus p{
     font-size: 25px;
     width: 95%;
-    height: 335px;
+    height: 265px;
     border-radius: 2px;
     text-align: justify;
     padding: 20px;
@@ -556,7 +556,7 @@ header .botoes .pag_Votar{
     justify-content: center;
     flex-direction: column;
     border: 1px solid rgb(0, 0, 0);
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(0, 0, 0);
     border-radius: 10px;
 }
 
@@ -580,4 +580,37 @@ header .botoes .pag_Votar{
     color: black;
     margin-bottom: 0;
     margin-top: 20px;
+}
+
+#ult_votos{
+    color: black;
+    margin: 0;
+    font-size: 50px;
+}
+
+.containerHIST{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.containerHIST .historico{
+    display: flex;
+    width: 50%;
+    height: 500px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 20px;
+    color: black;
+}
+
+#span_historico{
+    color: rgb(0, 0, 0);
+    font-size: 30px;
 }

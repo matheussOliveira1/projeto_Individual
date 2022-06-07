@@ -120,6 +120,30 @@ function buscarUltimasMedidasTotais() {
     return database.executar(instrucaoSql);
 }
 
+function buscarUltimasMedidasHistorico() {
+
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select top ${limite_linhas}
+        dht11_temperatura as temperatura, 
+        dht11_umidade as umidade,  
+                        momento,
+                        CONVERT(varchar, momento, 108) as momento_grafico
+                    from medida
+                    where fk_aquario = ${idAquario}
+                    order by id desc`;
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `SELECT idFormulario, nome, nomePersonagem, preferencia, respostaConclusao FROM Formulario JOIN personagemFav ON fkPersFav = idPersonagem ORDER BY idFormulario DESC`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
     buscarUltimasMedidasAnime,
@@ -127,4 +151,5 @@ module.exports = {
     buscarUltimasMedidasTerminaram,
     buscarUltimasMedidasMaisVotado,
     buscarUltimasMedidasTotais,
+    buscarUltimasMedidasHistorico,
 }

@@ -23,4 +23,8 @@ router.get("/ultimas/Totais", function (req, res) {
     medidaController.buscarUltimasMedidasTotais(req, res);
 });
 
+router.get("/ultimas/Historico", function (req, res) {
+    medidaController.buscarUltimasMedidasHistorico(req, res);
+});
+
 module.exports = router;
