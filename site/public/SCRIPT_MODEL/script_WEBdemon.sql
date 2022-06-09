@@ -23,6 +23,7 @@ CREATE TABLE Formulario(
 select * from personagemFav;
 select * from formulario;
 
+
 -- SELECTS QUE QUERO UTILIZAR:
 
 -- HISTORICO DE VOTAÇÕES

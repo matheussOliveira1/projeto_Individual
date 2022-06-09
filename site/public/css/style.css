@@ -555,18 +555,13 @@ header .botoes .pag_Votar{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border: 1px solid rgb(0, 0, 0);
     background-color: rgb(0, 0, 0);
     border-radius: 10px;
 }
 
 .metrica{
     color: rgb(255, 255, 255);
-    display: flex;
-    width: 100%;
     font-size: 23px;
-    align-items: center;
-    justify-content: center;
 }
 
 .boxTitulo{
